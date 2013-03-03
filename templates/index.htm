@@ -1,5 +1,51 @@
 {% extends "_base.htm" %}
-
 {% block content %}
+
+<div class="row">
+    <div class="span6">
+    <h1>How many work days until</h1>
+    </div>
+    <div class="span2">
+        mm<br/>
+        <input type="text" class="input-small" />
+    </div>        
+    <div class="span2">
+        dd<br/>
+        <input type="text" class="input-small" />
+    </div>
+    <div class="span2">
+        yyyy<br/>
+        <input type="text" class="input-small" />
+    </div>        
+</div>
+
+<div class="row">
+    <div class="span3 offset1">
+        <h2>Year</h2>
+        {% for year in years %}
+            <button type="button" class="btn" style="margin-bottom:5px">{{year}}</button>
+            <br/>
+        {% endfor %}    
+    </div>
+    <div class="span3">
+        <h2>Month</h2>
+        {% for month in months %}
+        {{month}}<br/>
+        {% endfor %}
+    </div>
+    <div class="span3">
+        <h2>Day</h2>
+        <table class="calendar">
+        <tr><th>s</th><th>m</th><th>t</th><th>w</th><th>t</th><tH>f</th><th>s</th></tr>
+        <tr>
+        {% for day in days %}
+            <td>
+            {% if day[0] != 0 %}{{day[0]}}{% endif %}
+            </td>
+            {% if day[1]==5 %}</tr><tr>{% endif %}
+        {% endfor %}
+        </table>
+    </div>    
+</div>
 
 {% endblock %}
