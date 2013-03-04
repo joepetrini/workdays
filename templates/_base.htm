@@ -6,12 +6,13 @@
 	<script src="//d2c5utp5fpfikz.cloudfront.net/2_3_0/js/bootstrap.min.js"></script>
 	<script src="/static/workdays.js"></script>	
     <style>
-        body {padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */}
+        body {padding-top: 20px; /* 60px to make the container go all the way to the bottom of the topbar */}
     </style>	
 	<title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     <div class="container">
+    {% include '_settings.htm' %}
 	{% block content %}{% endblock %}
 	</div>
 </body>

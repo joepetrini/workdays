@@ -21,7 +21,7 @@ def index():
     return template('index.htm',years=years,months=months,days=days)
 
 
-@route('/10/27/2012')
-def mdy():
+@route('/<month>/<day>/<year>')
+def mdy(month,day,year):
     """Day calculation view"""
     return template('mdy.htm')
