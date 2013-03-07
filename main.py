@@ -4,10 +4,12 @@ from beaker.middleware import SessionMiddleware
 from app import views
 
 session_opts = {
-    'session.type': 'file',
-    'session.cookie_expires': 300,
+    'session.type': 'redis',
+    'session.url': '127.0.0.1:6379',
+    'session.key': 'workdays',
+    #'session.cookie_expires': 300,
     'session.data_dir': './data',
-    'session.auto': True
+    #'session.auto': True
 }
 
 app = SessionMiddleware(bottle.default_app(), session_opts)

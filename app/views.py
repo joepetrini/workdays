@@ -17,11 +17,14 @@ def index():
     cal = calendar.Calendar()
     cal.setfirstweekday(6) # Set weekday to start on sunday
     days = cal.itermonthdays2(2013,2) # Get day num and weekday num tuple
-    session['a']='a'
+    session['a']='sa'
+    session.save()
     return template('index.htm',years=years,months=months,days=days)
 
 
 @route('/<month>/<day>/<year>')
 def mdy(month,day,year):
     """Day calculation view"""
-    return template('mdy.htm')
+    session = request.environ.get('beaker.session')
+    a = session['a']
+    return template('mdy.htm',a=a)
