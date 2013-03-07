@@ -3,12 +3,19 @@
 <head>
 	<link href="//d2c5utp5fpfikz.cloudfront.net/2_3_0/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/workdays.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>    
 	<script src="//d2c5utp5fpfikz.cloudfront.net/2_3_0/js/bootstrap.min.js"></script>
+    <script src="//twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
 	<script src="/static/workdays.js"></script>	
     <style>
-        body {padding-top: 20px; /* 60px to make the container go all the way to the bottom of the topbar */}
+        body {padding-top: 0px; /* 60px to make the container go all the way to the bottom of the topbar */}
     </style>	
 	<title>{% block title %}{% endblock %}</title>
+    <script>
+    $(document).ready(function() {
+        $('.dropdown-toggle').dropdown()
+    });
+    </script>
 </head>
 <body>
     <div class="container">

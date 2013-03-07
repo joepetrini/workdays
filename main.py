@@ -8,7 +8,7 @@ session_opts = {
     'session.url': '127.0.0.1:6379',
     'session.key': 'workdays',
     #'session.cookie_expires': 300,
-    'session.data_dir': './data',
+    #'session.data_dir': './data',
     #'session.auto': True
 }
 
