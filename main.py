@@ -12,7 +12,17 @@ session_opts = {
     #'session.auto': True
 }
 
+
+class StripPathMiddleware(object):
+    """ Allow trailing / on urls, but strips them out. """
+    def __init__(self, app):
+        self.app = app
+    def __call__(self, e, h):
+        e['PATH_INFO'] = e['PATH_INFO'].rstrip('/')
+        return self.app(e,h)
+        
 app = SessionMiddleware(bottle.default_app(), session_opts)
+app = StripPathMiddleware(app)
 
 @bottle.route('/static/:filename#.*#')
 def server_static(filename):

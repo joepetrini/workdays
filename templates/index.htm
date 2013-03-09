@@ -1,46 +1,58 @@
 {% extends "_base.htm" %}
+{% block ready %}
+$(".month").click(function() {
+    setMonth($(this).html());
+});
+$(".year").click(function() {
+    setYear($(this).html());
+});
+$(".day").click(function() {
+    setDay($(this).html());
+});
+{% endblock %}
 {% block content %}
-
 <div class="row">
     <div class="span6">
     <h1>How many work days until</h1>
     </div>
-    <div class="span2">
+    <div class="span1">
         mm<br/>
-        <input type="text" class="input-small" />
+        <input id="month" type="text" class="input-small" style="width:30px" />
     </div>        
-    <div class="span2">
+    <div class="span1">
         dd<br/>
-        <input type="text" class="input-small" />
+        <input id="day" type="text" class="input-small" style="width:30px" />
     </div>
-    <div class="span2">
+    <div class="span1">
         yyyy<br/>
-        <input type="text" class="input-small" />
+        <input id="year" type="text" class="input-small" style="width:50px" />
     </div>        
 </div>
 
 <div class="row">
-    <div class="span3 offset1">
+    <div class="span2 offset1">
         <h2>Year</h2>
         {% for year in years %}
-            <button type="button" class="btn" style="margin-bottom:5px">{{year}}</button>
-            <br/>
+            <!--<button type="button" class="btn" style="margin-bottom:5px">{{year}}</button>-->
+            <div class="picker year">{{year}}</div>
         {% endfor %}    
     </div>
-    <div class="span3">
+    <div class="span2">
         <h2>Month</h2>
         {% for month in months %}
-        {{month}}<br/>
+            <div class="picker month">{{month}}</div>
         {% endfor %}
     </div>
-    <div class="span3">
+    <div class="span4">
         <h2>Day</h2>
         <table class="calendar">
         <tr><th>s</th><th>m</th><th>t</th><th>w</th><th>t</th><tH>f</th><th>s</th></tr>
         <tr>
         {% for day in days %}
             <td>
-            {% if day[0] != 0 %}{{day[0]}}{% endif %}
+            {% if day[0] != 0 %}
+            <div class="day">{{day[0]}}</div>
+            {% endif %}
             </td>
             {% if day[1]==5 %}</tr><tr>{% endif %}
         {% endfor %}

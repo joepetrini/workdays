@@ -4,3 +4,5 @@ def guid():
     """Generates a globally unique id"""
     return uuid1()
     
+
+    
