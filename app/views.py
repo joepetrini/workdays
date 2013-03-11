@@ -3,7 +3,7 @@ import calendar
 from datetime import datetime,timedelta,date
 from pytz import timezone
 from bottle import TEMPLATE_PATH, route, request, jinja2_template as template
-
+import bl
 
 TEMPLATE_PATH.append('./templates')
 
@@ -25,13 +25,11 @@ def index():
 def mdy(month,day,year):
     """Day calculation view"""
     session = request.environ.get('beaker.session')
-    now = datetime.today()
-    end = datetime(year,month,day,now.hour,now.minute)
-    diff = end - now
-    #delta = relativedelta(end, now)        
-    daysleft = int(diff.days)
-    #if diff.seconds/3600 > 12:
-    #    daysleft += 1
-    return template('mdy.htm',a=daysleft)
+    t = bl.timeuntil(year,month,day,'US/Eastern')
+    return template('mdy.htm',a=t)
     
-    # PAC time - 
+    
+@route('/set-tz')
+def set_timezone(tz):
+    """Save timezone selection to users settings"""
+    pass

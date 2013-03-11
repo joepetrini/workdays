@@ -2,6 +2,10 @@ var sm,sd,sy,sUrl;
 var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
 var url_months = new Array('jan','feb','mar','apr','may','jun','jul','jul','aug','sep','oct','nov','dec');
 
+function setTimezone(){
+    alert($('#timezone').val());
+}
+
 function checkDone(){
     // Check if all month,day,year are all selected, if so redir
     if (sm != undefined && sy != undefined && sd != undefined){
