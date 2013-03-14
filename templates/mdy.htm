@@ -1,9 +1,7 @@
 {% extends '_base.htm' %}
 
 {% block content %}
-<h1>XXX</h1>
-<h2>Days until 2/2/2</h2>
-<b>A friday 2 years, 3 months, and 3 days from today</b>
+<h1>{{diff.days}} days</h1>
+<h2>{%if diff.days<0%}since{%else%}until{%endif%} {{date}}</h2>
 
-<br>a:{{a}}
 {% endblock %}

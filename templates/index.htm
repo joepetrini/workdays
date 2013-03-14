@@ -1,5 +1,6 @@
 {% extends "_base.htm" %}
 {% block ready %}
+init({{cur_month}});
 $(".month").click(function() {
     setMonth($(this).html());
 });
@@ -25,22 +26,21 @@ $(".day").click(function() {
     </div>
     <div class="span1">
         yyyy<br/>
-        <input id="year" type="text" class="input-small" style="width:50px" />
-    </div>        
+        <input id="year" type="text" class="input-small" style="width:50px" value="{{cur_year}}" />
+    </div>
 </div>
 
 <div class="row">
     <div class="span2 offset1">
         <h2>Year</h2>
         {% for year in years %}
-            <!--<button type="button" class="btn" style="margin-bottom:5px">{{year}}</button>-->
-            <div class="picker year">{{year}}</div>
+            <div class="picker year{%if year==cur_year%} selected{%endif%}">{{year}}</div>
         {% endfor %}    
     </div>
     <div class="span2">
         <h2>Month</h2>
         {% for month in months %}
-            <div class="picker month">{{month}}</div>
+            <div class="picker month{%if loop.index==cur_month%} selected{%endif%}">{{month}}</div>
         {% endfor %}
     </div>
     <div class="span4">
@@ -51,7 +51,7 @@ $(".day").click(function() {
         {% for day in days %}
             <td>
             {% if day[0] != 0 %}
-            <div class="day">{{day[0]}}</div>
+            <div class="day picker">{{day[0]}}</div>
             {% endif %}
             </td>
             {% if day[1]==5 %}</tr><tr>{% endif %}
