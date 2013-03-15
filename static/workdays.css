@@ -1,13 +1,12 @@
 h1 {font-size: 34px}
 h2 {font-size: 28px}
 
+body {font-size: 16px} 
+
 .calendar th { color: #666 }
 .calendar td { padding: 5px; font-size: 16px;}
 
-#settings {
-    background: #000;
-    color: #ddd;
-}
+#settings {border-bottom:1px solid #ddd;padding:0px;}
 
 div.picker {padding:5px;border:1px solid #ddd;margin:5px;}
 div.picker:hover {background: #efefef;cursor:pointer}
@@ -15,3 +14,6 @@ div.year {text-align:center; width:65px}
 div.month {width: 80px; padding-left:20px}
 div.selected {background: #dfdfdf;border:1px solid #ccc}
 div.day {text-align:center;width:30px;padding:12px;border:1px solid #ddd;}
+
+#workdays-since {color:#1d61d6;font-size:56;}
+#date-info {font-size:28px;color:#666;}

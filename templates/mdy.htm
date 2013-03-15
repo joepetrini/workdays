@@ -1,7 +1,10 @@
 {% extends '_base.htm' %}
 
 {% block content %}
-<h1>{{diff.days}} days</h1>
-<h2>{%if diff.days<0%}since{%else%}until{%endif%} {{date}}</h2>
-
+{% include "_adsense.htm" %}
+<div class="row" style="text-align:center;margin-top:30px">
+    <h1 id="workdays-since">{{workdays}} workdays</h1>
+    <h2>{%if diff.days<0%}since{%else%}until{%endif%} {{date}}</h2>
+    <div id="date-info">a {{wday}} {{ext_info}} from today<div>
+</div>
 {% endblock %}

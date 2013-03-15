@@ -1,17 +1,24 @@
-<div class="row" id="settings"><div class="span12 text-right">
-
-
-Timezone: 
-<select id="timezone" onchange="setTimezone()">
-    <option value="US/Eastern">eastern</option>
-    <option value="US/Central">central</option>
-    <option value="US/Mountain">mountain</option>
-    <option value="US/Pacific">pacific</option>
-    <option value="US/Alaska">alaska</option>
-    <option value="US/Hawaii">hawaii</option>
-</select>
+<div class="row" id="settings">
+<div class="span4 text-left" style="padding-top:10px;">
+{% if wday %}
+    <a href="/"><i class="icon-caret-left"></i> back</a>
+{% endif %}
+</div>
+<div class="span8 text-right">
+    Timezone: 
+    <select id="timezone" style="margin-top:5px" onchange="setTimezone()">
+        <option value="US/Eastern">eastern</option>
+        <option value="US/Central">central</option>
+        <option value="US/Mountain">mountain</option>
+        <option value="US/Pacific">pacific</option>
+        <option value="US/Alaska">alaska</option>
+        <option value="US/Hawaii">hawaii</option>
+    </select>
 
 </div>
 </div>
 
+
+<!--
 <a href="http://www.opm.gov/policy-data-oversight/pay-leave/pay-administration/fact-sheets/holidays-work-schedules-and-pay">holidays</a>
+-->

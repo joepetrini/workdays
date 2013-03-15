@@ -33,7 +33,7 @@ function setMonth(m){
 function setDay(d){
     $('#day').val(_z(d.trim(),2));
     // Redirect
-    window.location = '/'+url_months.indexOf($('#month').val())+'/'+$('#day').val()+'/'+$('#year').val();
+    window.location = '/'+(url_months.indexOf($('#month').val())+1)+'/'+$('#day').val()+'/'+$('#year').val();
 }
 
 
