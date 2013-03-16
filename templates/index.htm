@@ -40,13 +40,16 @@ $(".day").click(function() {
     <div class="span2">
         <h2>Month</h2>
         {% for month in months %}
-            <div class="picker month{%if loop.index==cur_month%} selected{%endif%}">{{month}}</div>
+            <div id="month-{{month}}" class="picker month{%if loop.index==cur_month%} selected{%endif%}">{{month}}</div>
         {% endfor %}
     </div>
     <div class="span4">
         <h2>Day</h2>
-        <table class="calendar">
+        <table id="cal" class="calendar">
+        <thead>
         <tr><th>s</th><th>m</th><th>t</th><th>w</th><th>t</th><tH>f</th><th>s</th></tr>
+        </thead>
+        <tbody>
         <tr>
         {% for day in days %}
             <td>
@@ -56,6 +59,7 @@ $(".day").click(function() {
             </td>
             {% if day[1]==5 %}</tr><tr>{% endif %}
         {% endfor %}
+        </tbody>
         </table>
     </div>    
 </div>

@@ -19,7 +19,7 @@ def timeuntil(start,end,timezone):
     4
     """
     # Init result as named tuple
-    TimeResult = collections.namedtuple('TimeResult', 'delta rdelta workdays deltastr')
+    TimeResult = collections.namedtuple('TimeResult', 'delta rdelta workdays deltastr endday enddate')
     
     # Localize start and end times
     tz = pytz.timezone(timezone)    
@@ -44,16 +44,23 @@ def timeuntil(start,end,timezone):
     y,m,d = abs(rdelta.years),abs(rdelta.months),abs(rdelta.days)
     yname = 'year' if y==1 else 'years'
     mname = 'month' if m==1 else 'months'
-    dname = 'day' if d==1 else 'days'    
+    dname = 'day' if d==1 else 'days'
+
     deltastr = ""
     if (y == 0 and m == 0):
         deltastr = "%s %s" % (d,dname)
-    if (y == 0):
+    elif (y == 0):
         deltastr = "%s %s and %s %s" % (m,mname,d,dname)
     else:
         deltastr = "%s %s %s %s and %s %s" % (y,yname,m,mname,d,dname)        
+    
+    # Some preformatted strings    
+    days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']      
+    endday = days[end.weekday()]
+    enddate = end.strftime("%A %B %d %Y")    
         
-    r = TimeResult(delta,rdelta,workdays,deltastr)
+    r = TimeResult(delta,rdelta,workdays,deltastr,endday,enddate)
+
     return r
     
 def GetExtendedDayInfo(delta):

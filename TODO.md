@@ -4,8 +4,8 @@ ToDos
 # ~~Add db backend (not needed?) - Redis hooked in~~
 # ~~Preselect date to 30 days from today~~
 # ~~Main days until page~~
-# Workday logic!
-# Update js datepicker logic to reload month
+# ~~Workday logic!~~
+# ~~Update js datepicker logic to reload month~~
 # Add timezone setting and storing in db/session
 # Add holiday list
 # Add permalink ability, uses users day/timezone settings, allow for naming of date "retirement"
