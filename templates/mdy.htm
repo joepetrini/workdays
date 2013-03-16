@@ -3,8 +3,8 @@
 {% block content %}
 {% include "_adsense.htm" %}
 <div class="row" style="text-align:center;margin-top:30px">
-    <h1 id="workdays-since">{{workdays}} workdays</h1>
-    <h2>{%if diff.days<0%}since{%else%}until{%endif%} {{date}}</h2>
-    <div id="date-info">a {{wday}} {{ext_info}} from today<div>
+    <h1 id="workdays-since">{{result.workdays}} workdays</h1>
+    <h2>{%if result.delta.days<0%}since{%else%}until{%endif%} {{date}}</h2>
+    <div id="date-info">a {{result.deltastr}} from today<div>
 </div>
 {% endblock %}

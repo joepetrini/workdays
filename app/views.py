@@ -27,14 +27,16 @@ def index():
 def mdy(month,day,year):
     """Day calculation view"""
     session = request.environ.get('beaker.session')
-    diff,end,workdays = bl.timeuntil(year,month,day,'US/Eastern')
-    days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    wday = days[end.weekday()]       
-    d = end.strftime("%A %B %d %Y")
-    title = "How many days until %s"%d if diff.days > -1 else "How many days since %s"%d
-    ext_info = bl.GetExtendedDayInfo(diff)
-    return template('mdy.htm',diff=diff,title=title,end=end,year=year,month=month,day=day,
-                        wday=wday,date=d,ext_info=ext_info,workdays=workdays)
+    #diff,end,workdays = bl.timeuntil(year,month,day,'US/Eastern')
+    result = bl.timeuntil(datetime.now(),datetime(year,month,day),'US/Eastern')
+    #days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    #wday = days[end.weekday()]       
+    #d = end.strftime("%A %B %d %Y")
+    #title = "How many days until %s"%d if diff.days > -1 else "How many days since %s"%d
+    #ext_info = bl.GetExtendedDayInfo(diff)
+    #return template('mdy.htm',diff=diff,title=title,end=end,year=year,month=month,day=day,
+    #                    wday=wday,date=d,ext_info=ext_info,workdays=workdays)
+    return template('mdy.htm',result=result)
     
     
 @route('/set-tz')
