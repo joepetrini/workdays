@@ -3,7 +3,11 @@ var months = new Array('January','February','March','April','May','June','July',
 var url_months = new Array('jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec');
 
 function setTimezone(){
-    alert($('#timezone').val());
+    var timezone =  String($('#timezone option:selected').val());
+    timezone = timezone.replace('/','-');
+    $.get('/set-tz/'+timezone, function(data) {
+        // If m/d/y page, refresh
+    });
 }
 
 function init(m){
@@ -12,9 +16,9 @@ function init(m){
 
 function checkDone(){
     // Check if all month,day,year are all selected, if so redir
-    if (sm != undefined && sy != undefined && sd != undefined){
-        sUrl = url_months[d.getMonth()]+'/'+_z(d.getDate(),2)+'/'+sy
-        window.location = '/'+sUrl
+    if (sm !== undefined && sy !== undefined && sd !== undefined){
+        sUrl = url_months[d.getMonth()]+'/'+_z(d.getDate(),2)+'/'+sy;
+        window.location = '/'+sUrl;
     }
 }
 
@@ -40,17 +44,17 @@ function setMonth(monthName){
     var yearSelected = $('#year').val();
     var firstDayOfMonth = new Date(yearSelected,monthNum,1);
     firstDayOfMonth = firstDayOfMonth.getDay();
-    var tableContent = '<tr>'
+    var tableContent = '<tr>';
 
     // Pad weekdays before start of month
-    for (i=0;i<firstDayOfMonth;i++) {tableContent += '<td></td>'}
+    for (i=0;i<firstDayOfMonth;i++) {tableContent += '<td></td>';}
 
     // Fill in month days
-    var totalDays = daysInMonth(yearSelected,monthNum)
+    var totalDays = daysInMonth(yearSelected,monthNum);
     for (i=1;i<=totalDays;i++){
-        if (i>1 && (i-1+firstDayOfMonth)%7==0){tableContent+='<tr>';}
+        if (i>1 && (i-1+firstDayOfMonth)%7===0) { tableContent+='<tr>'; }
         tableContent += '<td><div class="day picker">'+i+'</div></td>';
-        if ((i-1+firstDayOfMonth)%7==6) {tableContent+='</tr>'}
+        if ((i-1+firstDayOfMonth)%7==6) { tableContent+='</tr>'; }
     }
     // Add closing tr tag if month doesn't end on sat
     if (!/tr>$/.test(tableContent)){tableContent+='</tr>';}
