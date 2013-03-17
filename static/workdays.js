@@ -24,6 +24,8 @@ function checkDone(){
 
 function setYear(y){
     $('#year').val(y);
+    $('div.year').removeClass('selected');
+    $('#year-'+y).addClass('selected');    
 }
 
 function daysInMonth(year,month){

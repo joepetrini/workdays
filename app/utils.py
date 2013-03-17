@@ -1,3 +1,6 @@
+import smtplib
+import string
+import inspect
 from bottle import TEMPLATE_PATH, jinja2_template as template
 
 
@@ -8,6 +11,7 @@ session_app_key = 'workdays_'
 def render(request, templateName, params={}):
     mobile = isMobile(request)
     params['mobile'] = mobile
+    params['view'] = inspect.stack()[1][3]
     if mobile:
         return template(templateName+'_mob.htm', params)
     else:
@@ -22,8 +26,8 @@ def isMobile(request):
         return True
     if 'blackberry' in user_agent:
         return True
-    #return False
-    return True
+    #return True
+    return False
 
 
 def setSession(request, key, value):
@@ -39,3 +43,19 @@ def getSession(request, key, default=None):
         return session[key]
     else:
         return default
+
+
+def sendMail(userEmail, message):
+    sendFrom = 'noreply@workdaysuntil.com'
+    sendTo = 'joepetrini@gmail.com'
+    message = "From: %s \r\n %s" % (userEmail, message)
+    body = string.join((
+        "From: %s" % sendFrom,
+        "To: %s" % sendTo,
+        "Subject: %s" % 'Feedback from workdaysuntil.com',
+        "",
+        message
+    ), "\r\n")
+    server = smtplib.SMTP('localhost')
+    server.sendmail(sendFrom, [sendTo], body)
+    server.quit()

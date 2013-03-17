@@ -1,0 +1,35 @@
+{% extends "_base.htm" %}
+{% block title %}Contact Us{% endblock %}
+{% block ready %}
+    $('#email').focus();
+{% endblock %}
+{% block content %}
+
+{% if success %}
+    <br/><br/>
+    <div class="alert alert-success">
+        Message sent.  Thanks!
+    </div>
+{% else %}
+<div class="row">
+    <div class="span 12">
+    <form action="" method="POST">
+      <fieldset>
+        <legend>Contact Us</legend>
+        <label>Email Address</label>
+        <input id="email" name="email" type="text" placeholder="" value="{{email}}">
+        <label>Message</label>
+        <textarea style="width:600px;height:100px;" id="comment" name="comment">{{comment}}</textarea>
+        <br/>
+        <button type="submit" class="btn">Submit</button>
+      </fieldset>
+    </form>
+    {% if error %}
+    <div class="alert alert-error">
+        {{error}}
+    </div>
+    {% endif %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

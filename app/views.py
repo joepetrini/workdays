@@ -3,7 +3,7 @@ import redis
 from datetime import datetime, timedelta
 from bottle import route, request
 from bl import getSitemap, timeuntil
-from utils import setSession, getSession, render
+from utils import setSession, getSession, render, sendMail
 
 
 @route('/')
@@ -33,6 +33,24 @@ def mdy(month, day, year):
     now = datetime.now()
     result = timeuntil(now, datetime(year, month, day), timezone)
     return render(request, 'mdy', {'result': result, 'timezone': timezone})
+
+
+@route('/contact', method='GET')
+def contact():
+    return render(request, 'contact', {})
+
+
+@route('/contact', method='POST')
+def contact_post():
+    email = request.POST.get('email')
+    comment = request.POST.get('comment')
+    if (email == '' or comment == ''):
+        return render(request, 'contact', {'error': 'Must fill in both fields', 'email': email, 'comment': comment})
+    elif ('@' not in email):
+        return render(request, 'contact', {'error': 'Invalid email address', 'email': email,
+                                           'comment': comment, 'title': 'Contact Us'})
+    sendMail(email, comment)
+    return render(request, 'contact', {'success': True})
 
 
 @route('/set-tz/<timezone>')

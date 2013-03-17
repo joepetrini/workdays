@@ -1,5 +1,7 @@
 {% extends '_base.htm' %}
 
+{% block metadesc %}Work days until {{result.enddate}}. {% endblock %}
+{% block title %}How many work days {%if result.delta.days<0%}since{%else%}until{%endif%} {{result.enddate}}{% endblock %}
 {% block content %}
 {% include "_adsense.htm" %}
 <div class="row" style="text-align:center;margin-top:30px">
