@@ -1,0 +1,27 @@
+body {color: #333;font-family: Arial, Verdana, sans-serif;}
+
+h1 {font-size: 30px}
+h2 {font-size: 20px}
+
+body {font-size: 16px} 
+
+a,a:visited {color:#1d61d6;text-decoration:none;}
+
+.calendar th { color: #666 }
+.calendar td { font-size: 16px;}
+
+.dtype {letter-spacing:3px;color:#c0c0c0;font-weight:bold;}
+
+#settings {border-bottom:1px solid #ddd;padding:0}
+
+div.picker {padding:5px;border:1px solid #ddd;margin:3px;float:left;display:inline;}
+div.picker:hover {background: #efefef;cursor:pointer}
+.year {text-align:center; width:65px}
+.month {width: 30px; padding-left:20px}
+.selected {background: #dfdfdf;border:1px solid #ccc}
+.day {text-align:center;width:24px;padding:0;border:1px solid #ddd;margin:0;}
+
+#workdays-since {color:#1d61d6;font-size:56;}
+#date-info {font-size:18px;color:#666;}
+
+div.datebox {border: 2px solid #efefef; padding:5px; margin-left:5px; text-align:center; font-size:30px; color:#1d61d6;}

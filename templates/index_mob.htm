@@ -1,0 +1,75 @@
+{% extends "_base_mob.htm" %}
+{% block ready %}
+init({{cur_month}});
+$(".month").click(function() {
+    setMonth($(this).html());
+});
+$(".year").click(function() {
+    setYear($(this).html());
+});
+$(".day").click(function() {
+    setDay($(this).html());
+});
+{% endblock %}
+{% block content %}
+<h1>How many work days until</h1>
+<table style="margin:0px auto 0px auto">
+    <tr>
+        <td class="dtype" style="text-align:right">mm</td>
+        <td class="dtype" style="text-align:right">dd</td>
+        <td class="dtype" style="text-align:right">yyyy</td>
+    </tr>
+    <tr>
+        <td>
+            <div id="month" class="datebox" style="width:58px">&nbsp;</div>
+        </td><td>
+            <div id="day" class="datebox" style="width:39px">&nbsp;</div>
+        </td><td>
+            <div id="year" class="datebox" style="width:78px">&nbsp;</div>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td style="float:left;width:80px">Year:</td>
+        <td>
+            {% for year in years %}
+                <div id="year-{{year}}" style="float:left" class="picker year">{{year}}</div>
+            {% endfor %}
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td style="float:left;width:80px">Month:</td>
+        <td>
+            <div id="month-Jan" class="picker month">Jan</div>
+            <div id="month-Feb" class="picker month">Feb</div>
+            <div id="month-Mar" class="picker month">Mar</div>
+            <div id="month-Apr" class="picker month">Apr</div>
+            <div id="month-May" class="picker month">May</div>
+            <div id="month-Jun" class="picker month">Jun</div>
+            <div id="month-Jul" class="picker month">Jul</div>
+            <div id="month-Aug" class="picker month">Aug</div>
+            <div id="month-Sep" class="picker month">Sep</div>
+            <div id="month-Oct" class="picker month">Oct</div>
+            <div id="month-Nov" class="picker month">Nov</div>
+            <div id="month-Dec" class="picker month">Dec</div>
+        </td>
+    </tr>
+</table>
+
+<div id="days" style="display:none">
+<h2>Day</h2>
+<table id="cal" class="calendar">
+    <thead>
+    <tr><th>s</th><th>m</th><th>t</th><th>w</th><th>t</th><tH>f</th><th>s</th></tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

@@ -10,9 +10,12 @@ ToDos
 # ~~Fix key namne in redis to respect config (might have to modify source and submit pull)~~
 # ~~Adsense template~~
 # Mobile!
+# SEO tags
 # Link DC into this site
-# Sitemap
-# Domain name 
+# Hook up analytics
+# UI cleanup - color text boxes
+# ~~Domain name~~
+# Contact form
 # Deployment!
 # R2 - Add holiday list - Need to add 
 # R2 - Add permalink ability, uses users day/timezone settings, allow for naming of date "retirement"

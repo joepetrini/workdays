@@ -1,11 +1,27 @@
 import collections
-from datetime import timedelta
+from datetime import timedelta, datetime
 from dateutil.relativedelta import *
 import pytz
 
 
 def getSitemap():
-    pass
+    s = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+    s += "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"
+    host = "www.workdaysuntil.com"
+    now = datetime.today()
+
+    # Go 10 years into the future
+    now = datetime.today()
+
+    for i in range(0, 3650):
+        d = now + timedelta(days=i)
+        ds = "%02d/%02d/%s" % (d.month, d.day, d.year)
+        s += "\t<url>\n"
+        s += "\t\t<loc>http://%s/%s</loc>\n" % (host, ds)
+        s += "\t\t<changefreq>daily</changefreq>\n"
+        s += "\t</url>\n"
+    s += "</urlset>\n"
+    return s
 
 
 def timeuntil(start, end, timezone):
