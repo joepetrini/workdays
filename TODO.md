@@ -7,7 +7,6 @@ ToDos
 # ~~Workday logic!~~
 # ~~Update js datepicker logic to reload month~~
 # ~~Add timezone setting and storing in db/session~~
-# ~~Fix key namne in redis to respect config (might have to modify source and submit pull)~~
 # ~~Adsense template~~
 # ~~Mobile!~~
 # ~~Hook up analytics~~

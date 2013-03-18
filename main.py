@@ -7,9 +7,6 @@ session_opts = {
     'session.url': '127.0.0.1:6379',
     'session.key': 'workdays',
     'session.cookie_expires': False,
-    #'session.cookie_expires': 300,
-    #'session.data_dir': './data',
-    #'session.auto': True
 }
 
 
@@ -30,4 +27,11 @@ app = StripPathMiddleware(app)
 def server_static(filename):
     return bottle.static_file(filename, root='./static/')
 
-bottle.run(port=8003, reloader=True, app=app, debug=True)
+
+import socket
+# Deployed on server, run via uwsgi
+if socket.gethostname()[-5:] == "-prod":
+    application = app
+# Local development, use build in bottle server
+else:
+    bottle.run(port=8003, reloader=True, app=app, debug=True)

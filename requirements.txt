@@ -1,9 +1,9 @@
 Beaker==1.6.4
 Jinja2==2.6
-beaker-extensions==0.1.2dev
 bottle==0.11.6
 python-dateutil==2.1
 pytz==2012j
 redis==2.7.2
 six==1.2.0
 wsgiref==0.1.2
+-e git+https://github.com/bbangert/beaker_extensions.git#egg=beaker_extensions
