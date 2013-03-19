@@ -63,7 +63,7 @@ def timeuntil(start, end, timezone):
 
     deltastr = ""
     if (y == 0 and m == 0):
-        deltastr = " %s%s" % (d, dname)
+        deltastr = " %s %s" % (d, dname)
     elif (y == 0):
         deltastr = "%s %s and %s %s" % (m, mname, d, dname)
     else:
