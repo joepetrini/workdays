@@ -13,7 +13,8 @@ ToDos
 # ~~Domain name~~
 # ~~SEO tags~~
 # ~~Contact form~~
-# UI cleanup - color text boxes
+# ~~UI cleanup - color text boxes~~
+# Mobile set current year as default
 # Deployment!
 # Link DC into this site
 # R2 - Add holiday list - Need to add 

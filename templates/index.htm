@@ -14,20 +14,22 @@ $(".day").click(function() {
 {% endblock %}
 {% block content %}
 <div class="row">
-    <div class="span6">
+    <div class="span6" style="padding-top:12px">
     <h1>How many work days until</h1>
     </div>
-    <div class="span1">
-        mm<br/>
-        <input id="month" type="text" class="input-small" style="width:30px" />
-    </div>        
-    <div class="span1">
-        dd<br/>
-        <input id="day" type="text" class="input-small" style="width:30px" />
-    </div>
-    <div class="span1">
-        yyyy<br/>
-        <input id="year" type="text" class="input-small" style="width:50px" value="{{cur_year}}" />
+    <div class="span6">
+        <table>
+            <tr>
+                <td class="dtype">mm</td>
+                <td class="dtype">dd</td>
+                <td class="dtype">yyyy</td>
+            </tr>
+            <tr>
+                <td><div id="month" class="datebox" style="width:58px"></div></td>
+                <td><div id="day" class="datebox" style="width:39px">&nbsp;</div></td>
+                <td><div id="year" class="datebox" style="width:78px">{{cur_year}}</div></td>
+            </tr>
+        </table>
     </div>
 </div>
 

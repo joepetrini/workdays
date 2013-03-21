@@ -10,6 +10,8 @@ body {font-size: 16px}
 
 div.picker {padding:5px;border:1px solid #ddd;margin:5px;}
 div.picker:hover {background: #efefef;cursor:pointer}
+div.datebox {border: 2px solid #efefef; padding:7px; margin-left:5px; text-align:center; font-size:30px; color:#1d61d6;}
+.dtype {text-align:right;letter-spacing:3px;color:#c0c0c0;font-weight:bold;}
 div.year {text-align:center; width:65px}
 div.month {width: 80px; padding-left:20px}
 div.selected {background: #dfdfdf;border:1px solid #ccc}

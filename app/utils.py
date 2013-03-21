@@ -26,6 +26,7 @@ def isMobile(request):
         return True
     if 'blackberry' in user_agent:
         return True
+    return True
     return False
 
 

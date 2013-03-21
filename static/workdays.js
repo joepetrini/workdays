@@ -11,7 +11,8 @@ function setTimezone(){
 }
 
 function init(m){
-    $('#month').val(url_months[m-1]);
+    //$('#month').val(url_months[m-1]);
+    $('#month').html(url_months[m-1]);
 }
 
 function checkDone(){
@@ -23,7 +24,8 @@ function checkDone(){
 }
 
 function setYear(y){
-    $('#year').val(y);
+    //$('#year').val(y);
+    $('#year').html(y);
     $('div.year').removeClass('selected');
     $('#year-'+y).addClass('selected');    
 }
@@ -40,10 +42,11 @@ function daysInMonth(year,month){
 function setMonth(monthName){
     var monthNum = months.indexOf(monthName);
     var monthAbbr = url_months[monthNum];
-    $('#month').val(monthAbbr);
+    //$('#month').val(monthAbbr);
+    $('#month').html(monthAbbr);
     
-    // TODO: Rebuild month table
-    var yearSelected = $('#year').val();
+    //var yearSelected = $('#year').val();
+    var yearSelected = $('#year').html();
     var firstDayOfMonth = new Date(yearSelected,monthNum,1);
     firstDayOfMonth = firstDayOfMonth.getDay();
     var tableContent = '<tr>';
@@ -73,9 +76,11 @@ function setMonth(monthName){
 }
 
 function setDay(d){
-    $('#day').val(_z(d.trim(),2));
+    //$('#day').val(_z(d.trim(),2));
+    $('#day').html(_z(d.trim(),2));
     // Redirect
-    window.location = '/'+(url_months.indexOf($('#month').val())+1)+'/'+$('#day').val()+'/'+$('#year').val();
+    //window.location = '/'+(url_months.indexOf($('#month').val())+1)+'/'+$('#day').val()+'/'+$('#year').val();
+    window.location = '/'+(url_months.indexOf($('#month').html())+1)+'/'+$('#day').html()+'/'+$('#year').html();
 }
 
 
