@@ -22,11 +22,11 @@ def isMobile(request):
     user_agent = request.headers.get('User-Agent', '').lower()
     if 'iphone' in user_agent:
         return True
-    if ('andrioid' in user_agent) and ('mobile' in user_agent):
+    if ('android' in user_agent) and ('mobile' in user_agent):
         return True
     if 'blackberry' in user_agent:
         return True
-    #return True
+    return True
     return False
 
 

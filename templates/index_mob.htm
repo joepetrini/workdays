@@ -2,6 +2,7 @@
 {% block title %}How many workdays or weekdays until...{% endblock %}
 {% block ready %}
 init({{cur_month}});
+
 $(".month").click(function() {
     setMonth($(this).html());
 });
@@ -11,6 +12,18 @@ $(".year").click(function() {
 $(".day").click(function() {
     setDay($(this).html());
 });
+
+/*
+$(".month").bind('touchstart', function() {
+    setMonth($(this).html());
+});
+$(".year").bind('touchstart', function() {
+    setYear($(this).html());
+});
+$(".day").bind('touchstart', function() {
+    setDay($(this).html());
+});
+*/
 {% endblock %}
 {% block content %}
 <h1>How many work days until</h1>
