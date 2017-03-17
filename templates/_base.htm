@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta name="google-site-verification" content="b4KEsaqgndnJ_kJhmRcxUGct-hl7vjh2K0CzIMQSgIE" />
     <title>{{title}}{% block title %}{% endblock %}</title>
     <meta name="description" content="{% block metadesc %}{% endblock %}Find out how many work days until a specified date" />
     <meta name="keywords" content="{% block keywords %}{% endblock %}work days until,working days until, week days until,how many days,working days,workday calculator">
@@ -11,12 +10,12 @@
     <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="//twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
-	<script src="/static/workdays.js"></script>	
-    <link href="/static/favicon.ico" rel="icon" type="image/x-icon" /> 
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">    
+	<script src="/static/workdays.js"></script>
+    <link href="/static/favicon.ico" rel="icon" type="image/x-icon" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <style>
         body {padding-top: 0px; /* 60px to make the container go all the way to the bottom of the topbar */}
-    </style>	
+    </style>
     <script>
     $(document).ready(function() {
         $('.dropdown-toggle').dropdown()
@@ -30,6 +29,6 @@
     {% include '_settings.htm' %}
 	{% block content %}{% endblock %}
 	</div>
-    {% include '_analytics.htm' %}    
+    {% include '_analytics.htm' %}
 </body>
 </html>

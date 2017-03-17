@@ -2,8 +2,8 @@ import calendar
 import redis
 from datetime import datetime, timedelta
 from bottle import route, request
-from bl import getSitemap, timeuntil
-from utils import setSession, getSession, render, sendMail
+from .bl import getSitemap, timeuntil
+from .utils import setSession, getSession, render, sendMail
 
 
 @route('/')
@@ -57,7 +57,7 @@ def contact_post():
 def set_timezone(timezone):
     """Save timezone selection to users settings"""
     timezone = str(timezone).replace('-', '/')
-    print timezone
+    # print timezone
     setSession(request, "timezone", timezone)
 
 
